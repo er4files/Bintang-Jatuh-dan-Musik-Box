@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bintang Jatuh & Musik Box</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .box {
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 30%; 
+            margin: auto; 
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            animation: star-fall 2s linear infinite;
+        }
+        @keyframes star-fall {
+            0% {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+        .music {
+            width: 100%; 
+            margin-top: 10px;
+        }
+        .lyrics {
+            color: #fff;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .box img {
+            width: 100%;
+            border-radius: 8px; 
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createStar() {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            star.style.left = Math.random() * 100 + "vw";
+            document.body.appendChild(star);
+            setTimeout(() => {
+                star.remove();
+            }, 2000);
+        }
+        setInterval(createStar, 100);
+    </script>
+    <div class="container">
+        <div class="box">
+            <img src="foto.JPEG" alt="Music Box Image">
+            <audio class="music" controls autoplay loop>
+                <source src="bersamamu.mp3" type="audio/mp3">
+            </audio>
+            <p class="lyrics">
+                Bersamamu, kita akan taklukan dunia<br>
+                Arungi samudra penuh rintangan<br>
+                Bersamamu, kita akan jalani semua<br>
+                Jangan takut untuk melangkah bersamaku (bersama)<br>
+                Bersamamu, ku akan dicintai dengan tulus<br>
+                Tanpa ragu, ku akan memberikan cintaku<br>
+                Bersamaku, kamu tak akan sendu<br>
+                Yakinkan kamu aku yang terbaik untukmu<br>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
